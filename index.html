@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WBM 5-303 ULTIMATE - Modular Drum Machine & TB-303 Acid Bass</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header" id="section-top">
+            <h1>⚡ WBM 5-303 ULTIMATE ⚡</h1>
+            <div class="subtitle">/// MODULAR EDITION - TB-303 Acid Bass • Parameter Locks • Polyrhythm ///</div>
+            <div class="version-badge">🔥 v5.1 ULTIMATE 🔥</div>
+        </header>
+
+        <main class="main-panel">
+            <!-- INFO BOX -->
+            <div class="info-box">
+                <h4>🎛️ FEATURES:</h4>
+                <p>
+                    <strong>NEU:</strong> TB-303 Acid Bass Modul | LFO Wobble | 18 Hardware Presets | 
+                    Per-Step Velocity/Decay/Filter Locks | Polyrhythm | Sub-OSC | WAV + MP3 Export
+                </p>
+            </div>
+
+            <!-- SECTION: PATTERN BANK -->
+            <section class="section-panel" id="section-patterns">
+                <h3>🎼 PATTERN BANK</h3>
+                <div class="pattern-bank-content">
+                    <div class="pattern-buttons" id="pattern-buttons">
+                        <button class="pattern-btn active" data-pattern="A">A</button>
+                        <button class="pattern-btn" data-pattern="B">B</button>
+                        <button class="pattern-btn" data-pattern="C">C</button>
+                        <button class="pattern-btn" data-pattern="D">D</button>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" id="copy-pattern">📋 Copy</button>
+                        <button class="btn" id="paste-pattern">📄 Paste</button>
+                        <button class="btn" id="morph-pattern">🔀 Morph A→B</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: MASTER CONTROLS -->
+            <section class="section-panel" id="section-master">
+                <h3>🎵 MASTER CONTROLS</h3>
+                <div class="control-section">
+                    <div class="control-group">
+                        <h4>🎚️ Tempo & Volume</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>BPM</span><span id="bpm-value">128</span></div>
+                            <input type="range" id="bpm" min="60" max="200" value="128">
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Master Volume</span><span id="volume-value">85</span></div>
+                            <input type="range" id="volume" min="0" max="100" value="85">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h4>🔊 Master Filter</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Cutoff</span><span id="filter-cutoff-value">12000</span></div>
+                            <input type="range" id="filter-cutoff" min="200" max="18000" value="12000">
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Resonance</span><span id="filter-res-value">0.7</span></div>
+                            <input type="range" id="filter-res" min="0.1" max="15" step="0.1" value="0.7">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h4>🎲 Generator</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Seed</span></div>
+                            <input type="number" id="seed-input" value="303" min="1" max="999999">
+                        </div>
+                        <button class="btn" id="generate-beat" style="width: 100%; margin-top: 10px;">🎲 Generate</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: FX PANEL -->
+            <section class="section-panel" id="section-fx">
+                <h3>🎚️ MASTER EFFECTS</h3>
+                <div class="fx-grid">
+                    <div class="fx-module">
+                        <h4>🔥 DISTORTION</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Type</span></div>
+                            <select id="dist-type">
+                                <option value="soft">Soft Clip</option>
+                                <option value="hard">Hard Clip</option>
+                                <option value="tube">Tube Warmth</option>
+                                <option value="fuzz">Fuzz</option>
+                                <option value="tape">Tape Saturation</option>
+                            </select>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Drive</span><span id="fx-dist-value">0</span></div>
+                            <input type="range" id="fx-distortion" min="0" max="100" value="0">
+                        </div>
+                    </div>
+
+                    <div class="fx-module">
+                        <h4>🏛️ REVERB</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Type</span></div>
+                            <select id="reverb-type">
+                                <option value="room">Room</option>
+                                <option value="hall">Hall</option>
+                                <option value="church">Church</option>
+                                <option value="plate">Plate</option>
+                                <option value="gated">Gated (80s!)</option>
+                                <option value="spring">Spring</option>
+                            </select>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Mix</span><span id="fx-reverb-value">20</span></div>
+                            <input type="range" id="fx-reverb" min="0" max="100" value="20">
+                        </div>
+                    </div>
+
+                    <div class="fx-module">
+                        <h4>⏱️ DELAY</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Time</span><span id="fx-delay-time-value">250</span>ms</div>
+                            <input type="range" id="fx-delay-time" min="50" max="1000" value="250">
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Feedback</span><span id="fx-delay-fb-value">30</span></div>
+                            <input type="range" id="fx-delay-fb" min="0" max="90" value="30">
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Mix</span><span id="fx-delay-mix-value">0</span></div>
+                            <input type="range" id="fx-delay-mix" min="0" max="100" value="0">
+                        </div>
+                    </div>
+
+                    <div class="fx-module">
+                        <h4>💪 COMPRESSOR</h4>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Threshold</span><span id="fx-comp-thresh-value">-12</span>dB</div>
+                            <input type="range" id="fx-comp-thresh" min="-40" max="0" value="-12">
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label"><span>Ratio</span><span id="fx-comp-ratio-value">4</span>:1</div>
+                            <input type="range" id="fx-comp-ratio" min="1" max="20" value="4">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: PRESETS -->
+            <section class="section-panel" id="section-presets">
+                <h3>🎹 HARDWARE & SYNTH PRESETS (18)</h3>
+                <div class="preset-buttons" id="preset-buttons">
+                    <!-- Presets werden per JS geladen -->
+                </div>
+            </section>
+
+            <!-- SECTION: TB-303 ACID MODULE -->
+            <section class="section-panel tb303-section" id="section-tb303">
+                <h3>🎸 TB-303 ACID BASS MODULE</h3>
+                <div id="tb303-panel">
+                    <!-- TB-303 UI wird per JS generiert -->
+                </div>
+            </section>
+
+            <!-- VISUALIZER -->
+            <div class="visualizer" id="section-visualizer">
+                <canvas id="waveform"></canvas>
+            </div>
+
+            <!-- SECTION: SEQUENCER -->
+            <section class="section-panel" id="section-sequencer">
+                <h3>🎚️ SEQUENCER</h3>
+                <div id="sequencer-container"></div>
+            </section>
+
+            <!-- SECTION: EXPORT -->
+            <section class="section-panel" id="section-export">
+                <h3>💾 EXPORT</h3>
+                <div class="button-group export-buttons">
+                    <button class="btn" id="export-wav">💾 WAV</button>
+                    <button class="btn btn-mp3" id="export-mp3">🎵 MP3</button>
+                    <span id="export-status" class="export-status"></span>
+                    <button class="btn" id="export-settings">📤 Export Settings</button>
+                    <button class="btn" id="import-settings">📥 Import Settings</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- STICKY BOTTOM BAR: Transport + Piano -->
+    <div class="sticky-bottom-bar">
+        <!-- Transport Controls -->
+        <div class="sticky-transport">
+            <button class="btn btn-play" id="play-btn">▶ Play</button>
+            <button class="btn btn-stop" id="stop-btn">⏹ Stop</button>
+            <button class="btn" id="clear-btn">🗑 Clear</button>
+            <button class="btn" id="accent-mode">Accent: OFF</button>
+            <button class="btn btn-plock" id="plock-mode">🔒 P-Lock: OFF</button>
+            <select id="plock-param" class="plock-select">
+                <option value="velocity">Velocity</option>
+                <option value="decay">Decay</option>
+                <option value="filter">Filter</option>
+            </select>
+            
+            <!-- Jump Navigation Buttons -->
+            <div class="jump-buttons">
+                <button class="jump-btn" data-target="section-top" title="Top">⬆</button>
+                <button class="jump-btn" data-target="section-patterns" title="Patterns">🎼</button>
+                <button class="jump-btn" data-target="section-master" title="Master">🎵</button>
+                <button class="jump-btn" data-target="section-fx" title="FX">🎚️</button>
+                <button class="jump-btn" data-target="section-presets" title="Presets">🎹</button>
+                <button class="jump-btn" data-target="section-tb303" title="TB-303">🎸</button>
+                <button class="jump-btn" data-target="section-sequencer" title="Sequencer">📊</button>
+                <button class="jump-btn" data-target="section-export" title="Export">💾</button>
+            </div>
+        </div>
+        
+        <!-- Piano Keyboard -->
+        <div class="piano-section">
+            <div class="piano-title">🎹 STICKY PIANO - Klicke Step → Klicke Taste</div>
+            <div class="piano-info" id="piano-info">Wähle einen Step aus, dann klicke hier eine Taste!</div>
+            <div class="piano-keys" id="piano-keys"></div>
+        </div>
+    </div>
+
+    <!-- MODULAR JAVASCRIPT -->
+    <script src="js/config.js"></script>
+    <script src="js/audio-engine.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/sounds.js"></script>
+    <script src="js/sequencer.js"></script>
+    <script src="js/presets.js"></script>
+    <script src="js/piano.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/tb303.js"></script>
+    <script src="js/tb303-ui.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
